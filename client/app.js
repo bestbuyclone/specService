@@ -33,7 +33,9 @@ class App extends React.Component {
     return (
       <table style={{ width: "100%" }}>
         <tr>
-          <th rowspan="5">Key Specs</th>
+          <th rowspan="5" style={{ verticalAlign: "top" }}>
+            Key Specs
+          </th>
           <th>Color</th>
           <th>{this.state.color}</th>
         </tr>
@@ -54,7 +56,9 @@ class App extends React.Component {
           <th>{this.state.series}</th>
         </tr>
         <tr>
-          <th rowspan="5">Features</th>
+          <th rowspan="5" style={{ verticalAlign: "top" }}>
+            Features
+          </th>
           <th>GPS Enabled</th>
           <th>{this.state.gps}</th>
         </tr>
@@ -75,7 +79,9 @@ class App extends React.Component {
           <th>{this.state.music}</th>
         </tr>
         <tr>
-          <th rowspan="3">Power</th>
+          <th rowspan="3" style={{ verticalAlign: "top" }}>
+            Power
+          </th>
           <th>Rechargeable</th>
           <th>{this.state.rechargeable}</th>
         </tr>
@@ -88,7 +94,9 @@ class App extends React.Component {
           <th>{this.state.battStrength}</th>
         </tr>
         <tr>
-          <th rowspan="4">Dimension</th>
+          <th rowspan="4" style={{ verticalAlign: "top" }}>
+            Dimension
+          </th>
           <th>Product Height</th>
           <th>{this.state.height}</th>
         </tr>
@@ -105,7 +113,9 @@ class App extends React.Component {
           <th>{this.state.weight}</th>
         </tr>
         <tr>
-          <th rowspan="3">Warranty</th>
+          <th rowspan="3" style={{ verticalAlign: "top" }}>
+            Warranty
+          </th>
           <th>Best Buy Warranty</th>
           <th>{this.state.bbyWarranty}</th>
         </tr>
@@ -118,7 +128,9 @@ class App extends React.Component {
           <th>{this.state.warrantyParts}</th>
         </tr>
         <tr>
-          <th rowspan="3">Other</th>
+          <th rowspan="3" style={{ verticalAlign: "top" }}>
+            Other
+          </th>
           <th>Product Name</th>
           <th>{this.state.name}</th>
         </tr>
