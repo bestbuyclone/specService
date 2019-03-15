@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,14 +13,14 @@ class App extends React.Component {
       gps: "Built-in",
       dataPlan: "Optional",
       model: "Series 4 42mm",
-      processer: "24nm 6th gen",
+      processor: "24nm 6th gen",
       music: "Built in",
       rechargeable: "Yes",
       battType: "Lithium-Ion",
       battStrength: "18-24hr",
       height: ".3in",
       width: ".9in",
-      length: "1.2in",
+      len: "1.2in",
       weight: "22.4g",
       bbyWarranty: "Geek Squad Replacement",
       warrantyLabor: "2 years",
@@ -28,6 +29,18 @@ class App extends React.Component {
       brand: "Apple",
       upc: "362777625566789"
     };
+  }
+  componentDidMount() {
+    axios
+      .get("/initial")
+      .then(data => {
+        let results = data.data;
+        console.log(results);
+        this.setState(results);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   render() {
     return (
@@ -114,7 +127,7 @@ class App extends React.Component {
         <tr>
           <th>Processor Speed</th>
           <th style={{ padding: ".75em", fontWeight: "lighter" }}>
-            {this.state.processer}
+            {this.state.processor}
           </th>
         </tr>
         <tr>
@@ -178,7 +191,7 @@ class App extends React.Component {
         <tr>
           <th>Product Length</th>
           <th style={{ padding: ".75em", fontWeight: "lighter" }}>
-            {this.state.length}
+            {this.state.len}
           </th>
         </tr>
         <tr>

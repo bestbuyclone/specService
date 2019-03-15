@@ -13,6 +13,7 @@ db.once("open", function() {
 });
 
 const specSchema = mongoose.Schema({
+  id: Number,
   color: String,
   waterRes: String,
   disType: String,
@@ -21,14 +22,14 @@ const specSchema = mongoose.Schema({
   gps: String,
   dataPlan: String,
   model: String,
-  processer: String,
+  processor: String,
   music: String,
   rechargeable: String,
   battType: String,
   battStrength: String,
   height: String,
   width: String,
-  length: String,
+  len: String,
   weight: String,
   bbyWarranty: String,
   warrantyLabor: String,
@@ -37,4 +38,55 @@ const specSchema = mongoose.Schema({
   brand: String,
   upc: String
 });
-const specs = mongoose.model("specs", specSchema);
+const Spec = mongoose.model("Spec", specSchema);
+
+const save = (info, cb) => {
+  console.log("hit save func");
+  let spec = new Spec({
+    id: info.id,
+    color: info.color,
+    waterRes: info.waterRes,
+    disType: info.disType,
+    appComp: info.appComp,
+    series: info.series,
+    gps: info.gps,
+    dataPlan: info.dataPlan,
+    model: info.model,
+    processor: info.processor,
+    music: info.music,
+    rechargeable: info.rechargeable,
+    battType: info.battType,
+    battStrength: info.battStrength,
+    height: info.height,
+    width: info.width,
+    len: info.len,
+    weight: info.weight,
+    bbyWarranty: info.bbyWarranty,
+    warrantyLabor: info.warrantyLabor,
+    warrantyParts: info.warrantyParts,
+    name: info.name,
+    brand: info.brand,
+    upc: info.upc
+  });
+  spec
+    .save()
+    .then(data => {
+      cb(null, data);
+    })
+    .catch(err => {
+      cb(err);
+    });
+};
+const retrieve = (id, cb) => {
+  console.log("you've hit the retrieve handler");
+  Spec.findOne({ id: id }, (err, res) => {
+    if (err) {
+      console.log("error in retrieve");
+    } else {
+      console.log(res, "res from db retrieve");
+      cb(null, res);
+    }
+  });
+};
+
+module.exports = { save, retrieve };
